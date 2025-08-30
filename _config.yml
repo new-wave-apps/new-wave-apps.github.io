@@ -14,6 +14,9 @@ company:
 
 # Social media (add if you have them)
 social:
+  name: "New Wave Apps"
+  links:
+    - "https://newwaveapps.dev"
   # twitter: "newwaveapps"
   # github: "new-wave-apps"
   # linkedin: "company/new-wave-apps"
@@ -22,6 +25,9 @@ social:
 author: "New Wave Apps"
 logo: "/assets/images/new-wave-apps-logo.png"
 lang: "en_US"
+
+# Default Open Graph image (1200x630px recommended)
+image: "/assets/images/og-image.png"
 
 # Build settings
 markdown: kramdown
