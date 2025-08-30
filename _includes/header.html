@@ -11,6 +11,16 @@
                 </li>
                 {% endfor %}
             </ul>
+            <div class="theme-selector">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Theme selector">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <div id="theme-menu" class="theme-menu">
+                    <button class="theme-option" data-theme="light">☀️ Light</button>
+                    <button class="theme-option" data-theme="dark">🌙 Dark</button>
+                    <button class="theme-option" data-theme="system">💻 System</button>
+                </div>
+            </div>
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>

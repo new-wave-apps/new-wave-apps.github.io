@@ -27,6 +27,86 @@
     
     <!-- JavaScript -->
     <script>
+        // Theme Management
+        const themeManager = {
+            init() {
+                this.themeToggle = document.getElementById('theme-toggle');
+                this.themeMenu = document.getElementById('theme-menu');
+                this.themeOptions = document.querySelectorAll('.theme-option');
+                this.themeIcon = document.querySelector('.theme-icon');
+                
+                // Load saved theme or default to system
+                const savedTheme = localStorage.getItem('theme') || 'system';
+                this.setTheme(savedTheme);
+                
+                // Set up event listeners
+                this.bindEvents();
+            },
+
+            bindEvents() {
+                // Toggle menu
+                this.themeToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.themeMenu.classList.toggle('show');
+                });
+
+                // Theme option clicks
+                this.themeOptions.forEach(option => {
+                    option.addEventListener('click', () => {
+                        const theme = option.dataset.theme;
+                        this.setTheme(theme);
+                        this.themeMenu.classList.remove('show');
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', () => {
+                    this.themeMenu.classList.remove('show');
+                });
+
+                // Listen for system theme changes
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                    const currentTheme = localStorage.getItem('theme') || 'system';
+                    if (currentTheme === 'system') {
+                        this.updateUI(currentTheme);
+                    }
+                });
+            },
+
+            setTheme(theme) {
+                // Update data attribute on html element
+                document.documentElement.setAttribute('data-theme', theme);
+                
+                // Save to localStorage
+                localStorage.setItem('theme', theme);
+                
+                // Update UI
+                this.updateUI(theme);
+            },
+
+            updateUI(theme) {
+                // Update active state
+                this.themeOptions.forEach(option => {
+                    option.classList.toggle('active', option.dataset.theme === theme);
+                });
+
+                // Update icon based on actual active theme
+                this.themeIcon.textContent = this.getActiveThemeIcon(theme);
+            },
+
+            getActiveThemeIcon(theme) {
+                if (theme === 'light') {
+                    return '☀️';
+                } else if (theme === 'dark') {
+                    return '🌙';
+                } else if (theme === 'system') {
+                    // Show the actual system preference, not the computer icon
+                    return window.matchMedia('(prefers-color-scheme: dark)').matches ? '🌙' : '☀️';
+                }
+                return '☀️'; // fallback
+            }
+        };
+
         // Mobile menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
@@ -50,6 +130,11 @@
                     });
                 }
             });
+        });
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            themeManager.init();
         });
 
         {% if page.custom_js %}
