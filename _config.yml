@@ -1,0 +1,90 @@
+# Site settings
+title: "New Wave Apps"
+description: "New Wave Apps LLC creates and publishes innovative mobile applications. We build our own app portfolio and offer select development services."
+url: "https://newwaveapps.dev" # Replace with your actual domain
+baseurl: "" # Subpath of your site, e.g. /blog
+
+# Company information
+company:
+  name: "New Wave Apps"
+  legal_name: "New Wave Apps LLC"
+  email: "contact@newwaveapps.dev"
+  tagline: "Crafting the future of mobile experiences"
+  focus: "Mobile App Publishing & Development"
+
+# Social media (add if you have them)
+social:
+  # twitter: "newwaveapps"
+  # github: "new-wave-apps"
+  # linkedin: "company/new-wave-apps"
+
+# SEO settings
+author: "New Wave Apps"
+logo: "/assets/images/new-wave-apps-logo.png"
+lang: "en_US"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Jekyll plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+
+# Include files
+include:
+  - _pages
+
+# Collections (for future expansion)
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: "_pages"
+      type: "pages"
+    values:
+      layout: "page"
+
+# Site navigation
+navigation:
+  - name: "Home"
+    url: "/"
+  - name: "Apps"
+    url: "/#apps"
+  - name: "Services"
+    url: "/#services"
+  - name: "Contact"
+    url: "/#contact"
+  - name: "Privacy"
+    url: "/privacy/"
+
+# Footer links
+footer_links:
+  - name: "Privacy Policy"
+    url: "/privacy/"
+  - name: "Terms & Conditions"
+    url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+    external: true

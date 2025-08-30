@@ -1,0 +1,18 @@
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-left">
+                <span class="footer-logo">{{ site.company.name | default: "NEW WAVE APPS" }}</span>
+                <p class="footer-tagline">{{ site.company.tagline | default: "Crafting the future of mobile experiences" }}</p>
+            </div>
+            <div class="footer-right">
+                <div class="footer-links">
+                    {% for link in site.footer_links %}
+                    <a href="{% if link.external %}{{ link.url }}{% else %}{{ link.url | relative_url }}{% endif %}"{% if link.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ link.name }}</a>
+                    {% endfor %}
+                </div>
+                <p class="footer-copyright">© {{ 'now' | date: "%Y" }} {{ site.company.legal_name | default: "New Wave Apps LLC" }}. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
