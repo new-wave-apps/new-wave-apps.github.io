@@ -111,12 +111,21 @@ h1, h2, h3, h4, h5, h6 {
     gap: 1rem;
 }
 
+.logo {
+    order: 1;
+}
+
+.theme-selector {
+    order: 3;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
     gap: 2rem;
     align-items: center;
     margin-left: auto;
+    order: 2;
 }
 
 .logo-text {
@@ -239,6 +248,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     cursor: pointer;
     gap: 4px;
+    order: 4;
 }
 
 .bar {
@@ -720,8 +730,24 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+    .nav-container {
+        justify-content: space-between;
+    }
+
     .hamburger {
         display: flex;
+        order: 1;
+    }
+
+    .logo {
+        order: 2;
+        flex: 1;
+        text-align: center;
+    }
+
+    .theme-selector {
+        order: 3;
+        margin-right: 0;
     }
 
     .nav-menu {
@@ -735,6 +761,7 @@ h1, h2, h3, h4, h5, h6 {
         transition: 0.3s;
         box-shadow: var(--shadow);
         padding: 2rem 0;
+        margin-left: 0;
     }
 
     .nav-menu.active {
@@ -850,18 +877,5 @@ h1, h2, h3, h4, h5, h6 {
         padding: 0.4rem 0.8rem;
     }
 
-    .theme-selector {
-        order: 2;
-        margin-right: 0;
-        margin-left: auto;
-    }
 
-    .theme-menu {
-        right: 0;
-        left: auto;
-    }
-
-    .nav-menu {
-        margin-left: 0;
-    }
 }
